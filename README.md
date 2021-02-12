@@ -9,14 +9,20 @@ That platform will revolve around managing car rental operations and organizing 
 It will consist in an E-commerce website based on JAVA and the use of Web Services that would:
 
 ● Allow Employees to rent cars for a specific duration of time.
+
 ● Allow Employees to rate and leave a note based on their appreciation after returning the car.
-● Generate a Waiting List for every car that is requested for rent but already rented so when the car is available, the Employee will be notified and will be able to rent the car based on the "first come, first served" principle .
+
+● Generate a Waiting List for every car that is requested for rent but already rented so when the car is available, the Employee will be notified and will be able to rent the car based on the "first come, first served" principle.
+
 ● Allow outside Customers to be able to access a catalog of previously rented cars.
+
 ● Show all car prices in Euros.
+
 ● Allow outside Customers to be able to buy previously rented cars.
+
 ● Accept all currencies for payment through conversion.
 
-**Note: For more information go check the Project_Report.pdf file**
+*Note: For more information go check the Project_Report.pdf file.*
 
 ## Installation
 
@@ -42,7 +48,7 @@ Then follow the steps:
 **Note:You can just run the maven Pom for step 3 under each project directory.**
 
 
-##You will find six projects for: 
+## You will find six projects for: 
 
 ### First part of the global project (RMI) :
 
@@ -74,7 +80,7 @@ A web site for the second part of the project (the web service part) proposing c
 #### 6- BankService:
 A web site for the second part of the project (the web service part) proposing an interface for the bank to create accounts and test the scenario after checkout from (IfsCarService project)
 
-###IMPORTANT: 
+### IMPORTANT: 
 
 **- Please find under the requirements directory a folder containing the server "tomcat 9.0 version" that you need, to implement the web projects(1, 5, and 6) in it !.**
 **- Please note that the website projects (1, 5, and 6) are maven projects.**
@@ -85,7 +91,7 @@ A web site for the second part of the project (the web service part) proposing a
 **Note: Some pdf explaining the project conception(EiffelCorp_project_conception.pdf,
 EiffelCorp_application_conception.pdf, Ifscars_application_conception.pdf).**
 
-##Usage: 
+## Usage: 
 
 ### Step 1: Open you IDEL and open the projects. ( 1,2,3,5,6)
 
@@ -95,16 +101,16 @@ EiffelCorp_application_conception.pdf, Ifscars_application_conception.pdf).**
 
 ### Step 4: Now open your bowser, here are the paths for the different applications:
 
-####Project 1:
+#### Project 1:
 
 On http://localhost::xxxx/EiffelCorp_application/
 To access admin plateform: Login: admin, Password: admin
 
-####Project 5:
+#### Project 5:
 
 On http://localhost::xxxx/IfsCarService/
 
-####Project 6:
+#### Project 6:
 On http://localhost::xxxx/BankService/ (Project 6)
 
 **Note: Replace xxxx with the port number that you have choosen.**

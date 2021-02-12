@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"    
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jsftl/core"
+      xmlns:p="http://primefaces.org/ui">
+   
+   <h:head>
+	   <meta charset="utf-8"/>
+	   <meta name="viewport" content="width=device.width, initial-sacle=1"/>
+	   <meta http-equiv="X-UA-Conpatible" content="IE=edge"/>
+	  
+	   <h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+	   
+	   <h:outputStylesheet library="css" name="productlist.css"></h:outputStylesheet>
+	
+	   <h:outputScript library="js" name="jquery-3.5.1.min.js"></h:outputScript>
+	   <h:outputScript library="js" name="bootstrap.min.js"></h:outputScript>
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+	 
+	</h:head>
+	
+	<h:body>
+		
+		
+			<nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #efefef5e !important;" >
+	
+				  <a class="navbar-brand" style="font-family: 'Garamond', sans-serif;" href="#!">
+				    <img src="https://www.univ-gustave-eiffel.fr/fileadmin/templates/UGE/assets/img/logo/logoRS-UGE.png"  height="30" alt="mdb logo"/>
+				    
+				  	 Eiffel Corp Project
+				  </a>
+	
+				 <div class="collapse navbar-collapse">
+			
+				    <!-- Right -->
+				    <ul class="navbar-nav ml-auto" >
+				      <li class="nav-item" >
+				        <h:form id="form2">
+				         <h:link outcome = "cart.xhtml" styleClass="nav-link navbar-link-2 waves-effect" id="cartcontainer">
+				         	<span class="badge badge-danger badge-pill"><h:outputText id="cartsize" value="#{ProductController.getCartSize()}"></h:outputText></span>
+				         	  <i class="fa fa-shopping-cart"></i>
+				         </h:link> 
+				      </h:form>
+				      </li>
+				      <li class="nav-item">
+				        <h:link value = "Shop" outcome ="productlist.xhtml" styleClass="nav-link waves-effect" /> 
+				      </li>
+				      <li class="nav-item">
+				        <h:link value = "Contact" outcome = "contact.xhtml" styleClass="nav-link waves-effect" /> 
+				      </li>
+				    </ul>
+				
+			  </div>
+			</nav>
+	
+	
+		
+    	
+	
+			<!--Section: Block Content-->
+	<section>
+
+		  <!--Carousel Wrapper-->
+		  <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+		    <!--Indicators-->
+		    <ol class="carousel-indicators">
+		      <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+		      <li data-target="#carousel-example-2" data-slide-to="1"></li>
+		      <li data-target="#carousel-example-2" data-slide-to="2"></li>
+		      <li data-target="#carousel-example-2" data-slide-to="3"></li>
+		    </ol>
+		    <!--/Indicators-->
+		    <!--Slides-->
+		    <div class="carousel-inner" role="listbox">
+		      <div class="carousel-item active">
+		        <div class="view">
+		          <img class="d-block w-100" src="https://www.enterprise.com/content/dam/ent-brand/car-sales-hand-shake.jpg.wrend.640.360.jpeg"
+		            alt="First slide" height="600px"/>
+		          <a href="#!">
+		            <div class="mask rgba-black-light"></div>
+		          </a>
+		        </div>
+		        <div class="carousel-caption">
+		          <h3 class="h3-responsive">IFsCars</h3>
+		          <p>Find your dream car in one click</p>
+		        </div>
+		      </div>
+		      <div class="carousel-item">
+		        <!--Mask color-->
+		        <div class="view">
+		          <img class="d-block w-100" src="https://www.bolidem.com/wp-content/uploads/2017/05/acheter.voiture.sport_.belgique.2.jpg"
+		            alt="Second slide" height="600px"/>
+		          <a href="#!">
+		            <div class="mask rgba-black-light"></div>
+		          </a>
+		        </div>
+		        <div class="carousel-caption">
+		          <h3 class="h3-responsive">IFsCars</h3>
+		          <p>Get the perfect car for the perfect price</p>
+		        </div>
+		      </div>
+		      <div class="carousel-item">
+		        <!--Mask color-->
+		        <div class="view">
+		          <img class="d-block w-100" src="http://www.monsieurvintage.com/photos/2019/10/porsche-targa.jpg"
+		            alt="Third slide" height="600px"/>
+		          <a href="#!">
+		            <div class="mask rgba-black-light"></div>
+		          </a>
+		        </div>
+		        <div class="carousel-caption">
+		          <h3 class="h3-responsive">IFsCars</h3>
+		          <p>The better way to buy a car</p>
+		        </div>
+		      </div>
+		     	<div class="carousel-item">
+		        <!--Mask color-->
+		        <div class="view">
+		          <img class="d-block w-100" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2019-ram-midsize-pickup-final3-1-1559583572.jpg"
+		            alt="Third slide" height="600px"/>
+		          <a href="#!">
+		            <div class="mask rgba-black-light"></div>
+		          </a>
+		        </div>
+		        <div class="carousel-caption">
+		          <h3 class="h3-responsive">IFsCars</h3>
+		          <p>Let's find your ideal car</p>
+		        </div>
+		      </div>
+		    
+		    
+		    </div>
+		    
+		    
+		    
+		    
+		    <!--/Slides-->
+		    
+		    <!--Controls-->
+		    <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+		      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		      <span class="sr-only">Previous</span>
+		    </a>
+		    <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+		      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		      <span class="sr-only">Next</span>
+		    </a>
+		    <!--/Controls-->
+		  </div>
+		  <!--/Carousel Wrapper-->
+
+		</section>
+	<!--Section: Block Content-->
+		
+
+		<div class="container-fluid px-0">
+		    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed" style="font-family: 'Allerta Stencil', sans-serif;  background-color: #ffeaea9c !important;">
+		        <div class="container-fluid d-flex"> <a class="navbar-brand" href="#">IfCars Service</a>
+		            <ul class="nav nav-tabs" id="myTab" role="tablist">
+		            	<li class="nav-item" role="presentation"> <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">ALL</a></li>
+		                <li class="nav-item" role="presentation"> <a class="nav-link" id="suv-tab" data-toggle="tab" href="#suv" role="tab" aria-controls="suv" aria-selected="false">SUV</a> </li>
+		                <li class="nav-item" role="presentation"> <a class="nav-link" id="pickup-tab" data-toggle="tab" href="#pickup" role="tab" aria-controls="pickup" aria-selected="false">PICKUP</a> </li>
+		                <li class="nav-item" role="presentation"> <a class="nav-link" id="van-tab" data-toggle="tab" href="#van" role="tab" aria-controls="van" aria-selected="false">VAN</a> </li>
+		           	    <li class="nav-item" role="presentation"> <a class="nav-link" id="truck-tab" data-toggle="tab" href="#truck" role="tab" aria-controls="truck" aria-selected="false">TRUCK</a> </li>
+		         
+		            </ul>
+		        </div>
+		    </nav>
+		</div>
+
+		<div class="container-fluid mt-2 mb-5">
+		    <div class="products">
+		        <div class="tab-content" id="myTabContent">
+		            <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+						<h:form>
+						<div class="row g-3">
+		                    <ui:repeat var="p" value="#{ProductController.getProducts()}">
+		                    <div class="col-md-3">
+		                        <div class="card"> 
+		                        <h:link outcome="detail.xhtml" style="text-decoration:none;">
+		                        
+		                        	<f:param name="id" value="#{p.getId()}" />
+		                        <h:graphicImage library="images" name="#{p.imageUrl}" styleClass="card-img-top"/>
+		                             
+            									
+        
+		                            <div class="card-body">
+		                      			<div class="d-flex justify-content-between"> <span class="font-weight-bold"><h:outputText value="#{p.getBrand()} #{p.getModel()}"></h:outputText></span> <span class="font-weight-bold" style="font-color:#23395d;">#{p.getPrice()*ProductController.rate} #{ProductController.symbol}</span></div>
+			                         	<h:outputText styleClass="card-text mb-1 mt-1"></h:outputText>
+			                            </div> 
+			                             <div class="card-body">
+			                             	<ul>
+			                             		<li> HorsePower : #{p.horsePower}</li>
+			                             		<li> Type  : #{p.type}</li>
+			                             		<li> Color : #{p.color}</li>
+			                             		
+			                             	</ul>
+			                             
+			                               <div class="d-flex justify-content-between">
+			                               	  <div class="d-flex align-items-center flex-row"> 
+			                                	<h:graphicImage library="images" name="guarantee.png" width="30px"/><span class="guarantee">2 Years Guarantee</span> 
+			                      			 </div>	
+			                      			  <div class="ratings"> <span>#{ProductController.getProductRating(p.getId())}</span><i class="fa fa-star"></i></div>
+			                              </div>
+			                         </div>
+		                      		</h:link>
+		                            <div class="card-footer">
+		                               <div class="d-flex justify-content-between">
+		                                <span></span> <span><h:commandLink action="#{ProductController.addToCart(p)}" styleClass="btn btn-success">
+		                                	<i class="fa fa-shopping-cart pr-2"></i> Add to cart
+		                                <f:ajax execute="@form" render=":form2:cartsize"></f:ajax>
+		                                </h:commandLink>
+		                                </span>
+		                               </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		          			</ui:repeat>
+		          			
+		                </div>
+		                </h:form>
+		            </div>
+
+					<div class="tab-pane fade" id="suv" role="tabpanel" aria-labelledby="suv-tab">
+						<h:form>
+						<div class="row g-3">
+		                    <ui:repeat var="p" value="#{ProductController.getAllSUVCars()}">
+		                    <div class="col-md-3">
+		                        <div class="card"> 
+		                        <h:link outcome="detail.xhtml" style="text-decoration:none;">
+		                        
+		                        	<f:param name="id" value="#{p.getId()}" />
+		                        <h:graphicImage library="images" name="#{p.imageUrl}" styleClass="card-img-top"/>
+		                             
+            									
+        
+		                            <div class="card-body">
+		                      			<div class="d-flex justify-content-between"> <span class="font-weight-bold"><h:outputText value="#{p.getBrand()} #{p.getModel()}"></h:outputText></span> <span class="font-weight-bold" style="font-color:#23395d;">#{p.getPrice()*ProductController.rate} #{ProductController.symbol}</span></div>
+			                         	<h:outputText styleClass="card-text mb-1 mt-1"></h:outputText>
+			                            </div> 
+			                             <div class="card-body">
+			                             	<ul>
+			                             		<li> HorsePower : #{p.horsePower}</li>
+			                             		<li> Type  : #{p.type}</li>
+			                             		<li> Color : #{p.color}</li>
+			                             		
+			                             	</ul>
+			                             
+			                               <div class="d-flex justify-content-between">
+			                               	  <div class="d-flex align-items-center flex-row"> 
+			                                	<h:graphicImage library="images" name="guarantee.png" width="30px"/><span class="guarantee">2 Years Guarantee</span> 
+			                      			 </div>	
+			                      			  <div class="ratings"> <span>#{ProductController.getProductRating(p.getId())}</span><i class="fa fa-star"></i></div>
+			                              </div>
+			                         </div>
+		                      		</h:link>
+		                            <div class="card-footer">
+		                               <div class="d-flex justify-content-between">
+		                                <span class="wishlist"><i class="fa fa-heart"></i></span> <span><h:commandLink action="#{ProductController.addToCart(p)}" styleClass="btn btn-success">
+		                                	<i class="fa fa-shopping-cart pr-2"></i> Add to cart
+		                                <f:ajax execute="@form" render=":form2:cartsize"></f:ajax>
+		                                </h:commandLink>
+		                                </span>
+		                               </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		          			</ui:repeat>
+		          			
+		                </div>
+		                </h:form>
+		            </div>
+
+					<div class="tab-pane fade" id="pickup" role="tabpanel" aria-labelledby="pickup-tab">
+						<h:form>
+						<div class="row g-3">
+		                    <ui:repeat var="p" value="#{ProductController.getAllPICKUPCars()}">
+		                    <div class="col-md-3">
+		                        <div class="card"> 
+		                        <h:link outcome="detail.xhtml" style="text-decoration:none;">
+		                        
+		                        	<f:param name="id" value="#{p.getId()}" />
+		                        <h:graphicImage library="images" name="#{p.imageUrl}" styleClass="card-img-top"/>
+		                             
+            									
+        
+		                            <div class="card-body">
+		                      			<div class="d-flex justify-content-between"> <span class="font-weight-bold"><h:outputText value="#{p.getBrand()} #{p.getModel()}"></h:outputText></span> <span class="font-weight-bold" style="font-color:#23395d;">#{p.getPrice()*ProductController.rate} #{ProductController.symbol}</span></div>
+			                         	<h:outputText styleClass="card-text mb-1 mt-1"></h:outputText>
+			                            </div> 
+			                             <div class="card-body">
+			                             	<ul>
+			                             		<li> HorsePower : #{p.horsePower}</li>
+			                             		<li> Type  : #{p.type}</li>
+			                             		<li> Color : #{p.color}</li>
+			                             		
+			                             	</ul>
+			                             
+			                               <div class="d-flex justify-content-between">
+			                               	  <div class="d-flex align-items-center flex-row"> 
+			                                	<h:graphicImage library="images" name="guarantee.png" width="30px"/><span class="guarantee">2 Years Guarantee</span> 
+			                      			 </div>	
+			                      			  <div class="ratings"> <span>#{ProductController.getProductRating(p.getId())}</span><i class="fa fa-star"></i></div>
+			                              </div>
+			                         </div>
+		                      		</h:link>
+		                            <div class="card-footer">
+		                               <div class="d-flex justify-content-between">
+		                                <span class="wishlist"><i class="fa fa-heart"></i></span> <span><h:commandLink action="#{ProductController.addToCart(p)}" styleClass="btn btn-success">
+		                                	<i class="fa fa-shopping-cart pr-2"></i> Add to cart
+		                                <f:ajax execute="@form" render=":form2:cartsize"></f:ajax>
+		                                </h:commandLink>
+		                                </span>
+		                               </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		          			</ui:repeat>
+		          			
+		                </div>
+		                </h:form>
+		            </div>
+
+					<div class="tab-pane fade" id="van" role="tabpanel" aria-labelledby="van-tab">
+						<h:form>
+						<div class="row g-3">
+		                    <ui:repeat var="p" value="#{ProductController.getAllVANCars()}">
+		                    <div class="col-md-3">
+		                        <div class="card"> 
+		                        <h:link outcome="detail.xhtml" style="text-decoration:none;">
+		                        
+		                        	<f:param name="id" value="#{p.getId()}" />
+		                        <h:graphicImage library="images" name="#{p.imageUrl}" styleClass="card-img-top"/>
+		                             
+            									
+        
+		                            <div class="card-body">
+		                      			<div class="d-flex justify-content-between"> <span class="font-weight-bold"><h:outputText value="#{p.getBrand()} #{p.getModel()}"></h:outputText></span> <span class="font-weight-bold" style="font-color:#23395d;">#{p.getPrice()*ProductController.rate} #{ProductController.symbol}</span></div>
+			                         	<h:outputText styleClass="card-text mb-1 mt-1"></h:outputText>
+			                            </div> 
+			                             <div class="card-body">
+			                             	<ul>
+			                             		<li> HorsePower : #{p.horsePower}</li>
+			                             		<li> Type  : #{p.type}</li>
+			                             		<li> Color : #{p.color}</li>
+			                             		
+			                             	</ul>
+			                             
+			                               <div class="d-flex justify-content-between">
+			                               	  <div class="d-flex align-items-center flex-row"> 
+			                                	<h:graphicImage library="images" name="guarantee.png" width="30px"/><span class="guarantee">2 Years Guarantee</span> 
+			                      			 </div>	
+			                      			  <div class="ratings"> <span>#{ProductController.getProductRating(p.getId())}</span><i class="fa fa-star"></i></div>
+			                              </div>
+			                         </div>
+		                      		</h:link>
+		                            <div class="card-footer">
+		                               <div class="d-flex justify-content-between">
+		                                <span class="wishlist"><i class="fa fa-heart"></i></span> <span><h:commandLink action="#{ProductController.addToCart(p)}" styleClass="btn btn-success">
+		                                	<i class="fa fa-shopping-cart pr-2"></i> Add to cart
+		                                <f:ajax execute="@form" render=":form2:cartsize"></f:ajax>
+		                                </h:commandLink>
+		                                </span>
+		                               </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		          			</ui:repeat>
+		          			
+		                </div>
+		                </h:form>
+		            </div>
+
+					<div class="tab-pane fade" id="truck" role="tabpanel" aria-labelledby="truck-tab">
+						<h:form>
+						<div class="row g-3">
+		                    <ui:repeat var="p" value="#{ProductController.getAllTRUCKCars()}">
+		                    <div class="col-md-3">
+		                        <div class="card"> 
+		                        <h:link outcome="detail.xhtml" style="text-decoration:none;">
+		                        
+		                        	<f:param name="id" value="#{p.getId()}" />
+		                        <h:graphicImage library="images" name="#{p.imageUrl}" styleClass="card-img-top"/>
+		                             
+            									
+        
+		                            <div class="card-body">
+		                      			<div class="d-flex justify-content-between"> <span class="font-weight-bold"><h:outputText value="#{p.getBrand()} #{p.getModel()}"></h:outputText></span> <span class="font-weight-bold" style="font-color:#23395d;">#{p.getPrice()*ProductController.rate} #{ProductController.symbol}</span></div>
+			                         	<h:outputText styleClass="card-text mb-1 mt-1"></h:outputText>
+			                            </div> 
+			                             <div class="card-body">
+			                             	<ul>
+			                             		<li> HorsePower : #{p.horsePower}</li>
+			                             		<li> Type  : #{p.type}</li>
+			                             		<li> Color : #{p.color}</li>
+			                             		
+			                             	</ul>
+			                             
+			                               <div class="d-flex justify-content-between">
+			                               	  <div class="d-flex align-items-center flex-row"> 
+			                                	<h:graphicImage library="images" name="guarantee.png" width="30px"/><span class="guarantee">2 Years Guarantee</span> 
+			                      			 </div>	
+			                      			  <div class="ratings"> <span>#{ProductController.getProductRating(p.getId())}</span><i class="fa fa-star"></i></div>
+			                              </div>
+			                         </div>
+		                      		</h:link>
+		                            <div class="card-footer">
+		                               <div class="d-flex justify-content-between">
+		                                <span class="wishlist"><i class="fa fa-heart"></i></span> <span><h:commandLink action="#{ProductController.addToCart(p)}" styleClass="btn btn-success">
+		                                	<i class="fa fa-shopping-cart pr-2"></i> Add to cart
+		                                <f:ajax execute="@form" render=":form2:cartsize"></f:ajax>
+		                                </h:commandLink>
+		                                </span>
+		                               </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		          			</ui:repeat>
+		          			
+		                </div>
+		                </h:form>
+		            </div>
+
+				</div>
+		    		
+		    	
+		    </div>
+		</div>
+	
+	</h:body>
+	
+	
+</html>

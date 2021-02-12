@@ -1,0 +1,13 @@
+.metadata/
+.project
+LCIENSE
+NOTICE
+RELEASE-NOTES
+RUNNING.TXT
+Servers/
+work/
+temp/
+webapps/
+requirements/
+logs/
+conf/

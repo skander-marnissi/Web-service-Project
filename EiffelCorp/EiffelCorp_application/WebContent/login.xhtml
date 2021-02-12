@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"    
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jsftl/core">
+ 
+ <h:head>
+    	<title>Log In</title>
+    	   
+			
+    	   
+					<meta charset="utf-8"/>
+					<meta name="viewport" content="width=device.width, initial-sacle=1"/>
+					<meta http-equiv="X-UA-Conpatible" content="IE=edge"/>
+			 
+				
+				
+				<h:outputStylesheet library="css" name="login.css"/>
+			
+				<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+				<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+				<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+			
+				
+		
+		
+				
+				
+			<script src="https://kit.fontawesome.com/3c6061281c.js" crossorigin="anonymous"></script>
+
+		
+			
+
+    	</h:head>
+		
+		<h:body style="background-color:lavender;">
+
+	
+
+
+					
+		<div class="wrapper fadeInDown">
+		 
+		 <div class="py-5 text-center fadeIn second">
+		        <img class="d-block mx-auto mb-4" src="https://www.univ-gustave-eiffel.fr/fileadmin/templates/UGE/assets/img/logo/logoRS-UGE.png" alt="" width="72" height="72"/>
+		        <h2>Eiffle Corp Web Application</h2>
+		        <p class="lead">Welcome, Please log In </p>
+    	 </div>
+	
+		  <div id="formContent">
+		    <!-- Tabs Titles -->
+		
+		    <!-- Icon -->
+		    <div class="fadeIn firs">
+		    	<span style="font-size: 3em; color: darkseagreen;">
+		    	 <i class="fa fa-lock" aria-hidden="true"></i>
+		    	</span>
+		    
+		    </div>
+		
+		    <!-- Login Form -->
+		    <h:form>
+		    	
+		    	<div class="fadeIn second">	
+		    	<div class="col-4">
+			     	<span class="text-left" style="font-size: 1em; color: darkseagreen;"><i class="fa fa-user" aria-hidden="true"></i></span>
+			     	<span><h:outputLabel for="username" value="Username" styleClass="control-label" /></span>
+		     	</div>
+		     	<div class="col-12 mb-3">
+		     	<h:inputText class="form-control"  id="username" value="#{LoginController.username}"  required="true"></h:inputText>
+		     	</div>
+		     	</div>
+		     	
+		     	<div class="fadeIn third">
+			     	<div class="col-4">
+				     	<span class="text-left" style="font-size: 1em; color: darkseagreen;"><i class="fa fa-key" aria-hidden="true"></i></span>
+				     	<h:outputLabel for="mdp" value="Password" styleClass="control-label"/>
+			     	</div>
+			     	<div class="col-12 mb-3">		     	
+			     		<h:inputSecret id="mdp" class="form-control" value="#{LoginController.password}"  required="true"></h:inputSecret>
+			     	</div>
+		     	</div>
+		     	
+		     	<h:commandButton class="fadeIn fourth" action="#{LoginController.login()}"  value="Log In"></h:commandButton>
+		      </h:form>
+		
+		    <!-- Remind Passowrd -->
+		
+		
+		  </div>
+		</div>
+</h:body>
+			</html>
+	

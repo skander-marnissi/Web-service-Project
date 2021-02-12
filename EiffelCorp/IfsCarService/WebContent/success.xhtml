@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"    
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jsftl/core"
+      xmlns:p="http://primefaces.org/ui">
+   
+   <h:head>
+	   <meta charset="utf-8"/>
+	   <meta name="viewport" content="width=device.width, initial-sacle=1"/>
+	   <meta http-equiv="X-UA-Conpatible" content="IE=edge"/>
+	  
+	   <h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+	
+	
+	
+	   <h:outputScript library="js" name="jquery-3.5.1.min.js"></h:outputScript>
+	   <h:outputScript library="js" name="bootstrap.min.js"></h:outputScript>
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+	 
+	</h:head>
+	
+		<h:body style="background-color: #F5F1EE;">
+	
+		<meta http-equiv="refresh" content="4;url=productlist.xhtml" />
+			<div class="text-center" >
+				<div class="card" style="display: inline-block;  margin: 5% 0;">
+					<div class="card-header"   style="background-color: #7ee8156b;">
+						<div class="icon-box">
+							<span style="font-size: 3em; color: lightseagreen;">
+								<i class="fa fa-check-circle" aria-hidden="true"/>
+							</span>
+						</div> 
+					</div>
+					<div class="card-body" style="background-color: beige;" >
+						<h4><i> Congratulation !</i></h4>
+						<h:graphicImage library="images" name="confimation.png" height="150px"></h:graphicImage>
+						<p>Your payment was successfully verified and approved by your bank, an email containing the purchase detail has been sent to you </p>
+						<span class="text-info"> you will be redirected to the shop in few seconds ...</span>
+						<div class="spinner-border text-info" role="status">
+	  						<span class="sr-only">Loading...</span>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+	
+		</h:body>
+	</html>

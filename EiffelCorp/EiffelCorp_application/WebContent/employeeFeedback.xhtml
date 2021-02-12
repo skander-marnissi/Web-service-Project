@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"    
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jsftl/core"
+      xmlns:p="http://primefaces.org/ui">
+   
+<h:head>
+	  <meta charset="utf-8"/>
+	  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Test</title>
+	 
+ 
+	<h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="forms.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="simple-sidebar.css"></h:outputStylesheet>
+			
+		
+	<script src="https://kit.fontawesome.com/3c6061281c.js" crossorigin="anonymous"></script>
+
+</h:head>
+
+	<h:body>
+	<div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+      
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        
+                <li class="nav-item active">
+                <h:form>
+             	 <h:commandLink action="#{LoginController.logout()}" styleClass="nav-link"><i class="fa fa-power-off" aria-hidden="true"></i> Disconnect<span class="sr-only">(current)</span></h:commandLink>
+              </h:form>
+            </li>
+       
+          </ul>
+        </div>
+      </nav>
+	
+	    <!-- #page-content-wrapper -->
+      <div class="container-fluid">
+        
+
+		<div class="container-fluid mt-2 mb-5">
+				
+	
+		  	<h:form>
+  		<ui:param name="p" value="#{EmployeeController.getCarById(param['id'])}" /> 
+	  <div class="row">
+		    <div class="col-md-4 mb-4 mb-md-0">
+		
+		      <div id="mdb-lightbox-ui"></div>
+		
+		      <div class="mdb-lightbox">
+		
+		        <div class="row">
+						
+		         
+		              <div class="col-12">
+		            <figure class="view overlay rounded z-depth-1 main-img">
+		               
+		              <h:graphicImage library="images" name="#{p.imageUrl}" styleClass="img-fluid"/>
+		            </figure>
+		       		</div>
+		       		</div>
+		          </div>
+		          
+		
+		   
+		
+		    </div>
+	    
+	  
+	    <div class="col-md-8">
+	
+	      
+	
+	      
+	        <h4>#{p.brand} #{p.model}</h4> 
+	 	
+	      <hr/>
+	      <h5>Description :</h5>
+	        <p class="pt-1">#{p.description}</p>
+	     
+	      <hr/>
+	      <div class="table-responsive">
+	        <table class="table table-sm table-borderless mb-0">
+	          <tbody>
+	           <tr>
+	              <th class="pl-0 w-25" scope="row"><strong>Brand</strong></th>
+	             <td>#{p.brand}</td> 
+	             
+	            </tr>
+	            <tr>
+	              <th class="pl-0 w-25" scope="row"><strong>Model</strong></th>
+	             <td>#{p.model}</td>
+	              
+	            </tr>
+	            <tr>
+	              <th class="pl-0 w-25" scope="row"><strong>Color</strong></th>
+	              <td>#{p.color}</td> 
+	           	
+	            </tr>
+	            <tr>
+	              <th class="pl-0 w-25" scope="row"><strong>Horse Power</strong></th>
+	             <td>#{p.horsePower}</td> 
+	          
+	            </tr>
+	            <tr>
+	              <th class="pl-0 w-25" scope="row"><strong>Type</strong></th>
+	       
+	            	<td>#{p.type}</td>
+	            </tr>
+	       
+	          </tbody>
+	        </table>
+	      </div>
+	     			
+	     		
+	     			
+	             
+	             
+	             
+	             <div class="col-12" style="left:0;bottom:0;">
+	                  <hr/>
+		         	
+						<h:inputHidden value="#{AdminController.employee_id}" id="employeeId"></h:inputHidden>  
+						<h:inputHidden value="#{AdminController.car_id}" id="carId"></h:inputHidden>  
+							
+							
+						<div class=" col-md-6 mb-3">
+						
+						<h:outputLabel value="Your feedBack : " styleClass="control-label mb-3" for="description"></h:outputLabel>
+						<h:inputTextarea class="form-control"  id="description" value="#{EmployeeController.feedback_description}" />
+						
+						</div>
+						
+						<div class="col-md-6 mb-3">
+						
+						<h:outputLabel value="Your rating : " styleClass="control-label mb-3" for="rating"></h:outputLabel>
+						<h:inputText class="form-control"  id="rating" value="#{EmployeeController.rating}" />
+						
+						</div>	
+			
+			      <div class="col-md-6 mb-3">
+			      <h:commandLink action="#{EmployeeController.addFeedBack(EmployeeController.car_rent_id)}" styleClass="btn btn-success"> 
+			      <i class="fa fa-shopping-cart pr-2"></i> Send FeedBack
+			      <f:ajax execute="@form" ></f:ajax>
+			      </h:commandLink>
+			     
+			       </div>
+			     
+			     	 	
+		       </div>
+		   
+	       
+	       
+	       </div>
+	       
+	     
+	       
+	    
+	     </div>
+		   </h:form>
+		</div>
+				
+		
+			
+	</div>
+		
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <h:outputScript library="js" name="jquery.min.js"></h:outputScript>
+  <h:outputScript  library="js" name="bootstrap.bundle.min.js"></h:outputScript>
+    
+
+  <!-- Script For Alert -->
+
+<script>
+	  $(document).ready(function(){
+      alert("Ooops! you forgot to give us a FeedBack about your last rented car, please put a little description and rate that Car .");
+ 		 });
+</script>
+ </h:body>
+ 
+ </html>    

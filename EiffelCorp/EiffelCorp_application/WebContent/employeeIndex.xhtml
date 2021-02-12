@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"    
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jsftl/core"
+      xmlns:p="http://primefaces.org/ui">
+   
+<h:head>
+	  <meta charset="utf-8"/>
+	  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Test</title>
+	 
+ 
+	<h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="forms.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="simple-sidebar.css"></h:outputStylesheet>
+			
+		
+	<script src="https://kit.fontawesome.com/3c6061281c.js" crossorigin="anonymous"></script>
+
+</h:head>
+
+	<h:body>
+	
+		<f:event type="preRenderView" listener="#{EmployeeController.redirectToFeedBack()}" />
+		
+	<div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading"><center><h:graphicImage library="images" name="logoGE.png" width="50px"></h:graphicImage></center></div>
+   
+      <div class="list-group list-group-flush">
+        <h:link outcome="employeeIndex.xhtml" class="list-group-item list-group-item-action bg-light"><i class="fa fa-car" aria-hidden="true"></i> Rent a car</h:link>
+        <h:link outcome="employeeHistRent.xhtml" class="list-group-item list-group-item-action bg-light"><i class="fa fa-road" aria-hidden="true"></i> My Rents</h:link>
+        <h:link outcome="employeeHistFeedback.xhtml" class="list-group-item list-group-item-action bg-light"><i class="fa fa-star" aria-hidden="true"></i> My FeedBacks</h:link>
+       	<h:link outcome="employeeHistFeedback.xhtml" class="list-group-item list-group-item-action bg-light"><i class="fa fa-question" aria-hidden="true"></i> About Us</h:link>
+      </div>
+    
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <button class="btn btn-primary" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></button>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        
+                <li class="nav-item active">
+                <h:form>
+             	 <h:commandLink action="#{LoginController.logout()}" styleClass="nav-link"><i class="fa fa-power-off" aria-hidden="true"></i> Disconnect<span class="sr-only">(current)</span></h:commandLink>
+              </h:form>
+            </li>
+       
+          </ul>
+        </div>
+      </nav>
+	
+	    <!-- #page-content-wrapper -->
+      <div class="container-fluid">
+        
+    			 
+				<div class="container-fluid px-0">
+		    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed" style="font-family: 'Allerta Stencil', sans-serif;">
+		        <div class="container-fluid d-flex"> <h4><strong>IfsCars</strong></h4>
+		            <ul class="nav nav-tabs" id="myTab" role="tablist">
+		            	<li class="nav-item" role="presentation"> <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">ALL</a></li>
+		                <li class="nav-item" role="presentation"> <a class="nav-link" id="suv-tab" data-toggle="tab" href="#suv" role="tab" aria-controls="home" aria-selected="true">SUV</a> </li>
+		                <li class="nav-item" role="presentation"> <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">PICKUP</a> </li>
+		                <li class="nav-item" role="presentation"> <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">VAN</a> </li>
+		           	    <li class="nav-item" role="presentation"> <a class="nav-link" id="truck-tab" data-toggle="tab" href="#truck" role="tab" aria-controls="contact" aria-selected="false">TRUCK</a> </li>
+		         
+		            </ul>
+		        </div>
+		    </nav>
+		</div>
+
+		<div class="container-fluid mt-2 mb-5">
+		    <div class="products">
+		        <div class="tab-content" id="myTabContent">
+		            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+						<h:form>
+						<div class="row g-3">
+		                    <ui:repeat var="p" value="#{EmployeeController.getCars()}">
+		                    <div class="col-md-3">
+		                        <div class="card"> 
+		                        <h:link outcome="employeeRent.xhtml" style="text-decoration:none;">
+		                        
+		                        	<f:param name="id" value="#{p.getId()}" />
+		                        <h:graphicImage library="images" name="#{p.imageUrl}" styleClass="card-img-top"/>
+		                             
+            									
+        
+		                            <div class="card-body">
+		                      			<div class="d-flex justify-content-between"> <span class="font-weight-bold"><h:outputText value="#{p.getBrand()} #{p.getModel()}"></h:outputText></span> 
+		                      			<span class="font-weight-bold " style="display: inherit;">  <h:outputText styleClass="#{p.getAvailability() ? 'green-dot' : 'red-dot' }" ></h:outputText></span></div>
+			                         	<h:outputText styleClass="card-text mb-1 mt-1"></h:outputText>
+			                            </div> 
+			                             <div class="card-body">
+			                             	<ul>
+			                             		<li> HorsePower : #{p.horsePower}</li>
+			                             		<li> Type  : #{p.type}</li>
+			                             		<li> Color : #{p.color}</li>
+			                             		
+			                             	</ul>
+			                             
+			                               <div class="d-flex justify-content-between">
+			                               	  <div class="d-flex align-items-center flex-row"> 
+			                             	 </div>	
+			                      			  <div class="ratings"> <span>rating</span><i class="fa fa-star"></i></div>
+			                              </div>
+			                         </div>
+		                      		</h:link>
+		                            <div class="card-footer">
+		                               <div class="d-flex justify-content-between">
+		                                <span><h:link outcome="employeeRent.xhtml" styleClass="btn btn-success">
+		                                	<f:param name="id" value="#{p.getId()}" />
+		                                	<i class="fa fa-shopping-cart pr-2"></i> Rent this car
+		                                <f:ajax execute="@form" render=":form2:cartsize"></f:ajax>
+		                                </h:link>
+		                                </span>
+		                               </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		          			</ui:repeat>
+		          			
+		                </div>
+		                </h:form>
+		            </div>
+
+		        </div>
+		    </div>
+		</div>
+				
+		
+			
+	</div>
+		
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <h:outputScript library="js" name="jquery.min.js"></h:outputScript>
+  <h:outputScript  library="js" name="bootstrap.bundle.min.js"></h:outputScript>
+    
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+ </h:body>
+ 
+ </html>    

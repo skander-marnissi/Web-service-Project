@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"    
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jsftl/core"
+      xmlns:p="http://primefaces.org/ui">
+   
+<h:head>
+	  <meta charset="utf-8"/>
+	  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Test</title>
+	 
+ 
+	<h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="forms.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="simple-sidebar.css"></h:outputStylesheet>
+			
+		
+	<script src="https://kit.fontawesome.com/3c6061281c.js" crossorigin="anonymous"></script>
+
+</h:head>
+
+	<h:body>
+	<div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading"><center><h:graphicImage library="images" name="logoGE.png" width="50px"></h:graphicImage></center></div>
+   
+      <div class="list-group list-group-flush">
+        <h:link outcome="manageEmployees.xhtml" class="list-group-item list-group-item-action bg-light"><i class="fa fa-user-circle" aria-hidden="true"></i> Manage Employees</h:link>
+        <h:link outcome="manageCars.xhtml" class="list-group-item list-group-item-action bg-light"><i class="fa fa-car" aria-hidden="true"></i> Manage Cars</h:link>
+        <h:link outcome="manageRents.xhtml" class="list-group-item list-group-item-action bg-light"><i class="fa fa-road" aria-hidden="true"></i> Manage Rents</h:link>
+        <h:link outcome="manageFeedback.xhtml" class="list-group-item list-group-item-action bg-light"><i class="fa fa-star" aria-hidden="true"></i> Manage FeedBacks</h:link>
+        <h:link outcome="manageUsers.xhtml" class="list-group-item list-group-item-action bg-light"><i class="fa fa-server" aria-hidden="true"></i> Manage Users Account</h:link>
+        <h:link outcome="manageFeedback.xhtml" class="list-group-item list-group-item-action bg-light"><i class="fa fa-question" aria-hidden="true"></i> About Us</h:link>
+      </div>
+    
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <button class="btn btn-primary" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></button>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        
+                <li class="nav-item active">
+                <h:form>
+             	 <h:commandLink action="#{LoginController.logout()}" styleClass="nav-link"><i class="fa fa-power-off" aria-hidden="true"></i> Disconnect<span class="sr-only">(current)</span></h:commandLink>
+              </h:form>
+            </li>
+       
+          </ul>
+        </div>
+      </nav>
+	
+	    <!-- #page-content-wrapper -->
+      <div class="container-fluid">
+        		<div class="py-2 text-center">
+			        <h:graphicImage styleClass="d-block mx-auto mb-4" library="images" name="userIcon.png" alt="" width="120px" height="120px"/>
+			       
+    			 </div>
+			
+				<div class="container" style="overflow: auto; height: 600px;">
+					<div class="row">
+					
+						
+						<div class="col-md-12 order-md-1 mb-4">
+							<h4 class="d-flex justify-content-between align-items-center mb-3">
+								<span class="text-muted">User Account List</span>
+								
+							</h4>
+							
+							
+							
+							 <h:dataTable value="#{AdminController.getUsers()}" var="a" styleClass="table table-bordered table-striped tableOutput">
+						        
+						        
+						         <h:column>
+						         
+						        <f:facet name="header">
+						                <h:outputText value="Id"/>
+						            </f:facet>
+						       
+						           <h:outputText value="#{a.getId()}" />
+						        </h:column>
+						        
+						        <h:column>
+						         
+						        <f:facet name="header">
+						                <h:outputText value="Login"/>
+						            </f:facet>
+						       
+						           <h:outputText value="#{a.getLogin()}" />
+						        </h:column>
+						        
+						        <h:column>
+						            <f:facet name="header">
+						                <h:outputText value="Password"/>
+						            </f:facet>
+						            <h:outputText value="#{a.getPassword()}" />
+						        </h:column>
+						        
+						        <h:column>
+						            <f:facet name="header">
+						                <h:outputText value="Employee id"/>
+						            </f:facet>
+						            <h:outputText value="#{a.getEmployee_id()}" />
+						        </h:column>
+						       
+						     
+						        
+						    </h:dataTable>	        
+							        
+					
+								
+						</div>
+					
+						
+						
+					</div>
+			</div>
+				
+     
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <h:outputScript library="js" name="jquery.min.js"></h:outputScript>
+  <h:outputScript  library="js" name="bootstrap.bundle.min.js"></h:outputScript>
+    
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+ </h:body>
+ 
+ </html>    

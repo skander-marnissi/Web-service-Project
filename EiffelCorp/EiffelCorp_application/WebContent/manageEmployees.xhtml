@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"    
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jsftl/core"
+      xmlns:p="http://primefaces.org/ui">
+   
+<h:head>
+	  <meta charset="utf-8"/>
+	  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Manage Employee</title>
+	 
+ 
+	<h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="forms.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="simple-sidebar.css"></h:outputStylesheet>
+			
+		
+	<script src="https://kit.fontawesome.com/3c6061281c.js" crossorigin="anonymous"></script>
+
+</h:head>
+
+	<h:body>
+	<div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading"><center><h:graphicImage library="images" name="logoGE.png" width="50px"></h:graphicImage></center></div>
+   
+      <div class="list-group list-group-flush">
+        <h:link outcome="manageEmployees.xhtml" class="list-group-item list-group-item-action bg-light"><i class="fa fa-user-circle" aria-hidden="true"></i> Manage Employees</h:link>
+        <h:link outcome="manageCars.xhtml" class="list-group-item list-group-item-action bg-light"><i class="fa fa-car" aria-hidden="true"></i> Manage Cars</h:link>
+        <h:link outcome="manageRents.xhtml" class="list-group-item list-group-item-action bg-light"><i class="fa fa-road" aria-hidden="true"></i> Manage Rents</h:link>
+        <h:link outcome="manageFeedback.xhtml" class="list-group-item list-group-item-action bg-light"><i class="fa fa-star" aria-hidden="true"></i> Manage FeedBacks</h:link>
+        <h:link outcome="manageUsers.xhtml" class="list-group-item list-group-item-action bg-light"><i class="fa fa-server" aria-hidden="true"></i> Manage Users Account</h:link>
+        <h:link outcome="manageFeedback.xhtml" class="list-group-item list-group-item-action bg-light"><i class="fa fa-question" aria-hidden="true"></i> About Us</h:link>
+      </div>
+    
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <button class="btn btn-primary" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></button>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        
+                <li class="nav-item active">
+                <h:form>
+             	 <h:commandLink action="#{LoginController.logout()}" styleClass="nav-link"><i class="fa fa-power-off" aria-hidden="true"></i> Disconnect<span class="sr-only">(current)</span></h:commandLink>
+              </h:form>
+            </li>
+       
+          </ul>
+        </div>
+      </nav>
+	
+	    <!-- #page-content-wrapper -->
+      <div class="container-fluid">
+        		<div class="py-2 text-center">
+			        <h:graphicImage styleClass="d-block mx-auto mb-4" library="images" name="employeeIcon.png" alt="" width="120px" height="120px"/>
+			       
+    			 </div>
+	
+	
+		<div class="container">
+			<div class="row">
+			
+				<div class="col-md-4 order-md-2 mb-4">
+					<h4 class="d-flex justify-content-between align-items-center mb-3">
+						<span class="text-muted">Employee List</span>
+						
+					</h4>
+					
+					
+					<h:form id="tableForm">
+					 <h:dataTable value="#{AdminController.getEmployees()}" var="a" styleClass="table table-bordered table-striped tableOutput">
+				        
+				        
+				         <h:column>
+				         
+				        <f:facet name="header">
+				                <h:outputText value="Id"/>
+				            </f:facet>
+				       
+				           <h:outputText value="#{a.getId()}" />
+				        </h:column>
+				        
+				        <h:column>
+				            <f:facet name="header">
+				                <h:outputText value="First Name"/>
+				            </f:facet>
+				            <h:outputText value="#{a.getFirstName()}" />
+				        </h:column>
+				        
+				        <h:column>
+				            <f:facet name="header">
+				                <h:outputText value="Last Name"/>
+				            </f:facet>
+				            <h:outputText value="#{a.getLastName()}" />
+				        </h:column>
+				        
+				         <h:column>
+				            <f:facet name="header">
+				                <h:outputText value="Gender"/>
+				            </f:facet>
+				           	 <h:outputText value="#{a.getGender()}"/>
+				   
+				        </h:column>
+				        
+				        <h:column>
+				            <f:facet name="header">
+				                <h:outputText value="Age"/>
+				            </f:facet>
+				             <h:outputText value="#{a.getAge()}"></h:outputText>
+				        </h:column>
+				         
+				         <h:column>
+				            <f:facet name="header">
+				                <h:outputText value="Email"/>
+				            </f:facet>
+				           
+				            <h:outputText value="#{a.getEmail()}" ></h:outputText>
+				            
+				        </h:column>
+				         
+				         <h:column>
+				            <f:facet name="header">
+				                <h:outputText value="Address"/>
+				            </f:facet>
+				             <h:outputText value="#{a.getAddress()}"></h:outputText>
+				        </h:column>
+				        
+				         <h:column>
+				            <f:facet name="header">
+				                <h:outputText value="Phone Number"/>
+				            </f:facet>
+				             <h:outputText value="#{a.getPhoneNumber()}"></h:outputText>
+				        </h:column>
+				        
+				      
+				        
+				      <h:column>
+				      		<h:commandLink action="#{AdminController.editEmployee(a)}"> 
+					             <i class="fas fa-edit"></i>
+					              <f:ajax execute="@form" render="employeeForm" />
+				             </h:commandLink>
+				       	</h:column>
+				       	
+				         <h:column>
+				      		<h:commandLink action="#{AdminController.removeEmployee(a)}"> 
+					             <i class="fas fa-trash"></i>
+					              <f:ajax execute="@form" render="tableForm" />
+				             </h:commandLink>
+				       	</h:column>
+				     
+				        
+				    </h:dataTable>	        
+					</h:form>	        
+			
+						
+				</div>
+			
+				
+				<div class="col-md-4 order-md-1 mb-3">
+					<h:form styleClass="needs-validation" id="employeeForm">
+							
+							<h:inputHidden value="#{AdminController.employee_id}" id="employeeId"></h:inputHidden>  
+							
+							<div class="mb-3">
+									<h:outputLabel value="Phone Number" styleClass="control-label mb-3"/>
+									
+											<h:inputText styleClass="form-control" value="#{AdminController.phoneNumber}" required="true"></h:inputText>
+										
+								</div>
+						
+						<div class="row">
+							
+							<div class="col-md-6 mb-3">
+								<h:outputLabel value="First Name" styleClass="control-label mb-3"/>
+									
+										<h:inputText styleClass="form-control" value="#{AdminController.firstName}" required="true"></h:inputText>
+									
+							</div>
+							<div class="col-md-6 mb-3">
+									<h:outputLabel value="Last Name" styleClass="control-label mb-3"/>
+										
+											<h:inputText styleClass="form-control" value="#{AdminController.lastName}" required="true"></h:inputText>
+										
+							</div>
+							
+						</div>	
+							
+							
+							
+							<div class="mb-3">
+								<h:outputLabel value="Email" styleClass="control-label mb-3"/>
+								
+										<h:inputText styleClass="form-control" value="#{AdminController.email}" required="true"></h:inputText>
+									
+							</div>
+							
+							<div class="mb-3">
+								<h:outputLabel value="Address" styleClass="control-label mb-3"/>
+								
+										<h:inputText styleClass="form-control" value="#{AdminController.address}" required="true"></h:inputText>
+									
+							</div>
+							
+						<div class="row">
+							<div class="col-md-4 mb-3">
+									<h:outputLabel value="Gender" styleClass="control-label col-sm-2"/>
+									<h:selectOneMenu id="gender" styleClass="custom-select d-block w-100" value="#{AdminController.gender}" required="true">
+										<f:selectItem itemLabel="Male" itemValue="M"/>
+										<f:selectItem itemLabel="Female" itemValue="F"/>
+								</h:selectOneMenu>
+								
+							</div>
+								
+							<div class="col-md-4 mb-3">
+									<h:outputLabel value="Age" styleClass="control-label col-sm-2"/>
+									<h:inputText styleClass="form-control"  value="#{AdminController.age}" required="true"></h:inputText>
+								
+							</div>
+							
+						</div>
+							
+				
+						
+					<hr class="mb-4"></hr>
+					<h:commandButton styleClass="btn btn-success btn-lg btn-block" value="#{ AdminController.employee_id=='' || AdminController.employee_id==null ? 'Add Employee' : 'Edit Employee' }"  action="#{AdminController.addEmployee(AdminController.employee_id)}">
+					<f:ajax execute="@form" render="employeeForm tableForm" />
+					</h:commandButton>
+					
+				
+				</h:form>
+			</div>	
+			</div>
+			</div>
+			
+	</div>
+		
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <h:outputScript library="js" name="jquery.min.js"></h:outputScript>
+  <h:outputScript  library="js" name="bootstrap.bundle.min.js"></h:outputScript>
+    
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+ </h:body>
+ 
+ </html>    

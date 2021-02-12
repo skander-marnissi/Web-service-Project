@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+encoding//src/com/lavasoft/GeoIPService.java=UTF-8
+encoding//src/com/lavasoft/GeoIPServiceLocator.java=UTF-8
+encoding//src/com/lavasoft/GeoIPServiceSoap.java=UTF-8
+encoding//src/com/lavasoft/GeoIPServiceSoapStub.java=UTF-8
+encoding//src/webservice/BankWebServiceImpl.java=UTF-8
+encoding//src/webservice/BankWebServiceImplService.java=UTF-8
+encoding//src/webservice/BankWebServiceImplServiceLocator.java=UTF-8
+encoding//src/webservice/BankWebServiceImplSoapBindingStub.java=UTF-8

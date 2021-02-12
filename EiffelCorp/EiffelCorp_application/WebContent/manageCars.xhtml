@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"    
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jsftl/core"
+      xmlns:p="http://primefaces.org/ui">
+   
+<h:head>
+	  <meta charset="utf-8"/>
+	  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Test</title>
+	 
+ 
+	<h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="forms.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="simple-sidebar.css"></h:outputStylesheet>
+			
+		
+	<script src="https://kit.fontawesome.com/3c6061281c.js" crossorigin="anonymous"></script>
+
+</h:head>
+
+	<h:body>
+	<div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading"><center><h:graphicImage library="images" name="logoGE.png" width="50px"></h:graphicImage></center></div>
+   
+      <div class="list-group list-group-flush">
+        <h:link outcome="manageEmployees.xhtml" class="list-group-item list-group-item-action bg-light"><i class="fa fa-user-circle" aria-hidden="true"></i> Manage Employees</h:link>
+        <h:link outcome="manageCars.xhtml" class="list-group-item list-group-item-action bg-light"><i class="fa fa-car" aria-hidden="true"></i> Manage Cars</h:link>
+        <h:link outcome="manageRents.xhtml" class="list-group-item list-group-item-action bg-light"><i class="fa fa-road" aria-hidden="true"></i> Manage Rents</h:link>
+        <h:link outcome="manageFeedback.xhtml" class="list-group-item list-group-item-action bg-light"><i class="fa fa-star" aria-hidden="true"></i> Manage FeedBacks</h:link>
+        <h:link outcome="manageUsers.xhtml" class="list-group-item list-group-item-action bg-light"><i class="fa fa-server" aria-hidden="true"></i> Manage Users Account</h:link>
+        <h:link outcome="manageFeedback.xhtml" class="list-group-item list-group-item-action bg-light"><i class="fa fa-question" aria-hidden="true"></i> About Us</h:link>
+      </div>
+    
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <button class="btn btn-primary" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></button>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        
+                <li class="nav-item active">
+                <h:form>
+             	 <h:commandLink action="#{LoginController.logout()}" styleClass="nav-link"><i class="fa fa-power-off" aria-hidden="true"></i> Disconnect<span class="sr-only">(current)</span></h:commandLink>
+              </h:form>
+            </li>
+       
+          </ul>
+        </div>
+      </nav>
+	
+	    <!-- #page-content-wrapper -->
+      <div class="container-fluid">
+        		<div class="py-2 text-center">
+			        <h:graphicImage styleClass="d-block mx-auto mb-4" library="images" name="carIcon.png" alt="" width="120px" height="120px"/>
+			       
+    			 </div>
+			
+				<div class="container">
+					<div class="row">
+					
+						
+						<div class="col-md-4 order-md-2 mb-4">
+							<h4 class="d-flex justify-content-between align-items-center mb-3">
+								<span class="text-muted">Car List</span>
+								
+							</h4>
+							
+							
+							<h:form id="tableForm">
+							 <h:dataTable value="#{AdminController.getCars()}" var="a" styleClass="table table-bordered table-striped tableOutput">
+						        
+						        
+						         <h:column>
+						         
+						        <f:facet name="header">
+						                <h:outputText value="Id"/>
+						            </f:facet>
+						       
+						           <h:outputText value="#{a.getId()}" />
+						        </h:column>
+						        
+						        <h:column>
+						         
+						        <f:facet name="header">
+						                <h:outputText value="Registration number"/>
+						            </f:facet>
+						       
+						           <h:outputText value="#{a.getRegistrationNumber()}" />
+						        </h:column>
+						        
+						        <h:column>
+						            <f:facet name="header">
+						                <h:outputText value="Brand"/>
+						            </f:facet>
+						            <h:outputText value="#{a.getBrand()}" />
+						        </h:column>
+						        
+						        <h:column>
+						            <f:facet name="header">
+						                <h:outputText value="Model"/>
+						            </f:facet>
+						            <h:outputText value="#{a.getModel()}" />
+						        </h:column>
+						        
+						         <h:column>
+						            <f:facet name="header">
+						                <h:outputText value="Color"/>
+						            </f:facet>
+						           	 <h:outputText value="#{a.getColor()}"/>
+						   
+						        </h:column>
+						        
+						        <h:column>
+						            <f:facet name="header">
+						                <h:outputText value="Horse Power"/>
+						            </f:facet>
+						             <h:outputText value="#{a.getHorsePower()}"></h:outputText>
+						        </h:column>
+						         
+						         <h:column>
+						            <f:facet name="header">
+						                <h:outputText value="description"/>
+						            </f:facet>
+						           
+						            <h:outputText value="#{a.getDescription()}" ></h:outputText>
+						            
+						        </h:column>
+						         
+						         <h:column>
+						            <f:facet name="header">
+						                <h:outputText value="Type"/>
+						            </f:facet>
+						             <h:outputText value="#{a.getType()}"></h:outputText>
+						        </h:column>
+						        
+						         <h:column>
+						            <f:facet name="header">
+						                <h:outputText value="Price"/>
+						            </f:facet>
+						             <h:outputText value="#{a.getPrice()}€"></h:outputText>
+						        </h:column>
+						        
+						          <h:column>
+						            <f:facet name="header">
+						                <h:outputText value="State"/>
+						            </f:facet>
+						            <h:outputText value="#{a.getState()}"></h:outputText>
+						           
+						        </h:column>
+						        
+						           <h:column>
+						            <f:facet name="header">
+						                <h:outputText value="Availability"/>
+						            </f:facet>
+						           <center>  <h:outputText styleClass="#{a.getAvailability() ? 'green-dot' : 'red-dot' }"></h:outputText>
+						           </center>
+						        </h:column>
+						      
+						        
+						      <h:column>
+						      		<h:commandLink action="#{AdminController.editCar(a)}"> 
+							             <i class="fas fa-edit"></i>
+							              <f:ajax execute="@form" render="carFrom" />
+						             </h:commandLink>
+						       	</h:column>
+						       	
+						         <h:column>
+						      		<h:commandLink action="#{AdminController.removeCar(a)}"> 
+							             <i class="fas fa-trash"></i>
+							              <f:ajax execute="@form" render="tableForm" />
+						             </h:commandLink>
+						       	</h:column>
+						     
+						        
+						    </h:dataTable>	        
+							</h:form>	        
+					
+								
+						</div>
+					
+						
+						<div class="col-md-3 order-md-1 mb-3">
+							<h:form styleClass="needs-validation" id="carFrom" enctype='multipart/form-data'>
+									
+									<h:inputHidden value="#{AdminController.car_id}" id="carId"></h:inputHidden>  
+									
+									
+										<div class="mb-3">
+										<h:outputLabel value="Registration Number" styleClass="control-label mb-3"/>
+										
+												<h:inputText styleClass="form-control" value="#{AdminController.registrationNumber}" required="true"></h:inputText>
+											
+										</div>
+												
+								
+								
+								<div class="row">
+									
+									<div class="col-md-6 mb-3">
+										<h:outputLabel value="Brand" styleClass="control-label mb-3"/>
+											
+												<h:inputText styleClass="form-control" value="#{AdminController.brand}" required="true"></h:inputText>
+											
+									</div>
+									<div class="col-md-6 mb-3">
+											<h:outputLabel value="Model" styleClass="control-label mb-3"/>
+												
+													<h:inputText styleClass="form-control" value="#{AdminController.model}" required="true"></h:inputText>
+												
+									</div>
+									
+								</div>	
+									
+									
+									
+									<div class="mb-3">
+										<h:outputLabel value="Description" styleClass="control-label mb-3"/>
+										
+												<h:inputText styleClass="form-control" value="#{AdminController.car_description}" required="true"></h:inputText>
+											
+									</div>
+									
+									<div class="mb-3">
+										<h:outputLabel value="Image" styleClass="control-label mb-3"/>
+										
+												
+												<h:inputFile value="#{AdminController.file}" required="true">
+											      
+											    </h:inputFile>
+									</div>
+									
+								<div class="row">
+							
+										<div class="col-md-4 mb-3">
+											<h:outputLabel value="Color" styleClass="control-label col-sm-2"/>
+											<h:selectOneMenu id="color" styleClass="custom-select d-block w-100" value="#{AdminController.color}" required="true">
+											
+											<f:selectItem itemLabel="Black" itemValue="BLACK"/>
+											<f:selectItem itemLabel="White" itemValue="WHITE"/>
+											<f:selectItem itemLabel="Yellow" itemValue="YELLOW"/>
+											<f:selectItem itemLabel="Red" itemValue="RED"/>
+											<f:selectItem itemLabel="Blue" itemValue="BLUE"/>
+											
+											</h:selectOneMenu>
+										
+									</div>
+									
+										<div class="col-md-4 mb-3">
+											<h:outputLabel value="H.Power" styleClass="control-label"/>
+											
+													<h:inputText styleClass="form-control" value="#{AdminController.horsePower}" required="true"></h:inputText>
+												
+										</div>
+									<div class="col-md-4 mb-3">
+											<h:outputLabel value="Price" styleClass="control-label col-sm-2"/>
+											<h:inputText styleClass="form-control"  value="#{AdminController.price}" required="true"></h:inputText>
+										
+									</div>
+									
+								</div>
+										<div class="mb-3">
+											<h:outputLabel value="Type" styleClass="control-label col-sm-2"/>
+											<h:selectOneMenu id="type" styleClass="custom-select d-block w-100" value="#{AdminController.type}" required="true">
+												<f:selectItem itemLabel="SUV" itemValue="Suv"/>
+												<f:selectItem itemLabel="PICKUP" itemValue="Pickup"/>
+												<f:selectItem itemLabel="VAN" itemValue="Van"/>
+												<f:selectItem itemLabel="TRUCK" itemValue="Truck"/>
+											</h:selectOneMenu>
+										
+									</div>
+									
+						
+								
+							<hr class="mb-4"></hr>
+							<h:commandButton styleClass="btn btn-success btn-lg btn-block" value="#{ AdminController.car_id=='' || AdminController.car_id==null ? 'Add Car' : 'Edit Car' }"  action="#{AdminController.addCar(AdminController.car_id)}">
+							<f:ajax execute="@form" render="carFrom tableForm" />
+							</h:commandButton>
+							
+						
+						</h:form>
+					</div>	
+					</div>
+			</div>
+				
+     
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <h:outputScript library="js" name="jquery.min.js"></h:outputScript>
+  <h:outputScript  library="js" name="bootstrap.bundle.min.js"></h:outputScript>
+    
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+ </h:body>
+ 
+ </html>    
